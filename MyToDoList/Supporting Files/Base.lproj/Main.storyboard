@@ -45,7 +45,7 @@
         <!--New Todo-->
         <scene sceneID="hQv-gD-MMZ">
             <objects>
-                <tableViewController id="spJ-cd-jt8" sceneMemberID="viewController">
+                <tableViewController id="spJ-cd-jt8" customClass="ToDoDetailTableViewController" customModule="MyToDoList" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" estimatedSectionHeaderHeight="-1" sectionFooterHeight="18" estimatedSectionFooterHeight="-1" id="j4P-Nx-qtd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -74,6 +74,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <action selector="textEditChanged:" destination="spJ-cd-jt8" eventType="editingDidEnd" id="c1j-V2-sdv"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -182,6 +185,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="dueDateLabel" destination="yh1-LW-2iO" id="wRQ-fJ-NX0"/>
+                        <outlet property="dueDatePicker" destination="9W2-hO-1bV" id="ldP-Tw-ody"/>
+                        <outlet property="isCompleteButton" destination="D1V-nn-SZS" id="9t3-Wp-x2p"/>
+                        <outlet property="notesTextView" destination="GHq-ue-NTs" id="MVH-BZ-ycp"/>
+                        <outlet property="saveButton" destination="TeH-Bn-pha" id="Wbu-HA-J9Y"/>
+                        <outlet property="titleTextField" destination="UYN-02-g3D" id="cgO-cz-Te2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L2l-SV-0u9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="HKU-gj-nZD" userLabel="Exit" sceneMemberID="exit"/>
