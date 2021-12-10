@@ -17,6 +17,15 @@ struct ToDo: Codable, Equatable {
     /// TODO: 
     // var image: UIImage?
     
+    // Date Formatter
+    static let dateFormatter: DateFormatter = {
+       let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        
+        return dateFormatter
+    }()
+    
     static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
         return lhs.id == rhs.id
     }
