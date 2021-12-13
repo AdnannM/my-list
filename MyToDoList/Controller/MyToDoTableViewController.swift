@@ -63,9 +63,11 @@ extension MyToDoTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cellIdentifier, for: indexPath) as! ToDoTableViewCell
         let todo = todos[indexPath.row]
-        cell.textLabel?.text = todo.title
+        cell.titleLabel.text = todo.title
+        cell.delegate = self
+        cell.isComplete.isSelected = todo.isComplete
         return cell
     }
     
@@ -87,5 +89,17 @@ extension MyToDoTableViewController {
 extension MyToDoTableViewController {
     struct PropertyKeys {
         static let cellIdentifier = "todoCell"
+    }
+}
+
+ // MARK: - Protocol
+extension MyToDoTableViewController: ToDoTableViewCellDelegate {
+    func checkMarkTapped(sender: ToDoTableViewCell) {
+        if let indexPath = tableView.indexPath(for: sender) {
+            var todo = todos[indexPath.row]
+            todo.isComplete.toggle()
+            todos[indexPath.row] = todo
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        }
     }
 }

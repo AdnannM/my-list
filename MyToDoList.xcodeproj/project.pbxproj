@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A629F4D22767904500D8DDB6 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A629F4D12767904500D8DDB6 /* ToDoTableViewCell.swift */; };
 		A69E13132762447600D6F40E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E13122762447600D6F40E /* AppDelegate.swift */; };
 		A69E13152762447600D6F40E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69E13142762447600D6F40E /* SceneDelegate.swift */; };
 		A69E131A2762447600D6F40E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A69E13182762447600D6F40E /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A629F4D12767904500D8DDB6 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		A69E130F2762447600D6F40E /* MyToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A69E13122762447600D6F40E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A69E13142762447600D6F40E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		A69E13282762448E00D6F40E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A629F4D12767904500D8DDB6 /* ToDoTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				A69E132B276245B600D6F40E /* ToDo.swift in Sources */,
 				A69E132F276380E500D6F40E /* ToDoDetailTableViewController.swift in Sources */,
 				A69E132D276246AB00D6F40E /* MyToDoTableViewController.swift in Sources */,
+				A629F4D22767904500D8DDB6 /* ToDoTableViewCell.swift in Sources */,
 				A69E13132762447600D6F40E /* AppDelegate.swift in Sources */,
 				A69E13152762447600D6F40E /* SceneDelegate.swift in Sources */,
 			);
