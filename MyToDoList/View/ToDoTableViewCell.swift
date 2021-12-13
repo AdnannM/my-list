@@ -24,6 +24,11 @@ class ToDoTableViewCell: UITableViewCell {
 
     }
 
+    func updateCell(todo: ToDo) {
+        titleLabel.text = todo.title
+        isComplete.isSelected = todo.isComplete
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

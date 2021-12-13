@@ -74,11 +74,9 @@ extension MyToDoTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PropertyKeys.cellIdentifier, for: indexPath) as! ToDoTableViewCell
         let todo = todosFilter[indexPath.row]
-    
-        cell.titleLabel.text = todo.title
-        cell.isComplete.isSelected = todo.isComplete
-
         
+        cell.updateCell(todo: todo)
+
         cell.delegate = self
         return cell
     }
