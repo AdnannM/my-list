@@ -23,6 +23,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="axl-zc-0uX" kind="presentation" id="2Lp-qR-t6r"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -220,7 +223,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="spJ-cd-jt8" kind="relationship" relationship="rootViewController" id="8hj-UW-4pn"/>
+                        <segue destination="spJ-cd-jt8" kind="relationship" relationship="rootViewController" destinationCreationSelector="editTodo:sender:" id="8hj-UW-4pn"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rk7-Ug-Nkk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -244,6 +247,9 @@
             <point key="canvasLocation" x="-245" y="102"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2Lp-qR-t6r"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>

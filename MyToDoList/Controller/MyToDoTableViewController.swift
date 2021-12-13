@@ -30,18 +30,31 @@ class MyToDoTableViewController: UITableViewController {
     // MARK: - Segue
     @IBAction func unwindToToDoList(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveUnwind" else { return }
+        let sourceViewControler = segue.source as! ToDoDetailTableViewController
+        guard  let todo = sourceViewControler.todo else { return }
         
-        let sourceViewControler = segue.destination as? ToDoDetailTableViewController
-        
-        if let todo = sourceViewControler?.todo {
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            todos[selectedIndexPath.row] = todo
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else {
             let newIndexPath = IndexPath(row: todos.count, section: 0)
-            
             todos.append(todo)
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
+    }
+    
+    @IBSegueAction func editTodo(_ coder: NSCoder, sender: Any?) -> ToDoDetailTableViewController? {
+        guard let cell = sender as? UITableViewCell else { return nil }
         
+        if let indexPath = tableView.indexPath(for: cell) {
+            let todoToEdit = todos[indexPath.row]
+            return ToDoDetailTableViewController(coder: coder, todo: todoToEdit)
+        } else {
+            return ToDoDetailTableViewController(coder: coder, todo: nil)
+        }
     }
 }
+
 
 // MARK: - TableView DataSoruce
 extension MyToDoTableViewController {
