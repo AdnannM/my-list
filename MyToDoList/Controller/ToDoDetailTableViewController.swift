@@ -24,15 +24,33 @@ class ToDoDetailTableViewController: UITableViewController {
     
     var todo: ToDo?
     
+    
+    init?(coder: NSCoder, todo: ToDo?) {
+        self.todo = todo
+        super.init(coder: coder)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+            super.init(coder: aDecoder)
+        }
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // update datePicker date when the view Controller is first displayed
-        dueDatePicker.date = Date().addingTimeInterval(24*60*60)
+        if let todo = todo {
+            navigationItem.title = "To-Do"
+            titleTextField.text = todo.title
+            isCompleteButton.isSelected = todo.isComplete
+            dueDatePicker.date = todo.duoDate
+            notesTextView.text = todo.notes
+        } else {
+            // update datePicker date when the view Controller is first displayed
+            dueDatePicker.date = Date().addingTimeInterval(24*60*60)
+        }
         
-        updateSaveButtonState()
         updateDateLabel(date: dueDatePicker.date)
+        updateSaveButtonState()
     }
     
     // MARK: - Helpers Methods
