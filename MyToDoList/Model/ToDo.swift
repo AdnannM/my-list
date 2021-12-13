@@ -26,12 +26,29 @@ struct ToDo: Codable, Equatable {
         return dateFormatter
     }()
     
-    static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
-        return lhs.id == rhs.id
-    }
+    // MARK: - Save
+    static let documentDirectry = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+    static let archiveURL = documentDirectry?.appendingPathComponent("todos").appendingPathExtension("plist")
     
     static func loadTodos() -> [ToDo]? {
-        return nil
+        guard let archiveURL = archiveURL else { return nil }
+        guard let codedTodos = try? Data(contentsOf: archiveURL) else { return nil }
+        
+        let propertyListDecoder = PropertyListDecoder()
+        
+        return try? propertyListDecoder.decode([ToDo].self, from: codedTodos)
+    }
+    
+    static func saveTodos(_ todos: [ToDo]) {
+        let propertyListEncoder = PropertyListEncoder()
+        let codedTodos = try? propertyListEncoder.encode(todos)
+        
+        guard let archiveURL = archiveURL else { return }
+        try? codedTodos?.write(to: archiveURL, options: .noFileProtection)
+    }
+    
+    static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
+        return lhs.id == rhs.id
     }
     
     static func loadSampleTodos() -> [ToDo] {
