@@ -12,6 +12,7 @@ class MyToDoTableViewController: UITableViewController {
     
     var todos: [ToDo] = []
 
+    var todo: ToDo?
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -86,6 +87,10 @@ extension MyToDoTableViewController {
             ToDo.saveTodos(todos)
         }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 // MARK: - PropertyKeys
@@ -107,3 +112,4 @@ extension MyToDoTableViewController: ToDoTableViewCellDelegate {
         }
     }
 }
+

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class ToDoDetailTableViewController: UITableViewController {
     
@@ -76,6 +77,22 @@ class ToDoDetailTableViewController: UITableViewController {
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateLabel(date: sender.date)
     }
+    @IBAction func shareNotesWithMail(_ sender: UIBarButtonItem) {
+        guard MFMailComposeViewController.canSendMail() else {
+            print("Can't Sand Mail!")
+            return
+        }
+        
+        let messageBody = "Title: \(titleTextField.text!), Date: \(dueDateLabel.text!), Notes: \(notesTextView.text!)"
+        let mailComposer = MFMailComposeViewController()
+        mailComposer.mailComposeDelegate = self
+        mailComposer.setToRecipients(["example@examplse.com"])
+        mailComposer.setMessageBody(messageBody, isHTML: false)
+        
+        self.present(mailComposer, animated: true, completion: nil)
+    }
+    
+    
     
     // MARK: - Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,5 +128,12 @@ extension ToDoDetailTableViewController {
             tableView.beginUpdates()
             tableView.endUpdates()
         }
+    }
+}
+
+ // MARK: - Mail Delegate
+extension ToDoDetailTableViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        dismiss(animated: true, completion: nil)
     }
 }

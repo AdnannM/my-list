@@ -73,14 +73,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="MyToDo" id="OaF-Yc-ZEG">
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="yJx-lF-FOI">
-                                <connections>
-                                    <segue destination="axl-zc-0uX" kind="presentation" id="i4b-Kd-Bhb"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="action" id="YLP-j1-wyl"/>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="yJx-lF-FOI">
+                            <connections>
+                                <segue destination="axl-zc-0uX" kind="presentation" id="i4b-Kd-Bhb"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BPw-Vm-bWM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -238,11 +235,18 @@
                                 <segue destination="HKU-gj-nZD" kind="unwind" unwindAction="unwindToToDoListWithSegue:" id="rDE-NP-oEW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="TeH-Bn-pha">
-                            <connections>
-                                <segue destination="HKU-gj-nZD" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="6FM-dL-k2k"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="save" id="TeH-Bn-pha">
+                                <connections>
+                                    <segue destination="HKU-gj-nZD" kind="unwind" identifier="saveUnwind" unwindAction="unwindToToDoListWithSegue:" id="6FM-dL-k2k"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="action" id="PGP-6d-AdF">
+                                <connections>
+                                    <action selector="shareNotesWithMail:" destination="spJ-cd-jt8" id="fNq-m6-77n"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="dueDateLabel" destination="yh1-LW-2iO" id="wRQ-fJ-NX0"/>
