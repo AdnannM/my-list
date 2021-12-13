@@ -62,11 +62,7 @@ struct ToDo: Codable, Equatable {
                            duoDate: Date(),
                            notes: "Notes Two")
         
-        let todoThree = ToDo(title: "Todo Three",
-                           isComplete: false,
-                           duoDate: Date(),
-                           notes: "Notes Three")
         
-        return [todoOne, todoTwo, todoThree]
+        return [todoOne, todoTwo]
     }
 }
