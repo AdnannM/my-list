@@ -50,19 +50,20 @@ struct ToDo: Codable, Equatable {
     static func ==(lhs: ToDo, rhs: ToDo) -> Bool {
         return lhs.id == rhs.id
     }
-    
+
     static func loadSampleTodos() -> [ToDo] {
         let todoOne = ToDo(title: "Todo One",
                            isComplete: false,
                            duoDate: Date(),
                            notes: "Notes One")
-            
+
         let todoTwo = ToDo(title: "Todo Two",
                            isComplete: false,
                            duoDate: Date(),
                            notes: "Notes Two")
-        
-        
+
+
         return [todoOne, todoTwo]
     }
 }
+
