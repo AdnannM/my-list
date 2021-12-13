@@ -22,6 +22,8 @@ class ToDoDetailTableViewController: UITableViewController {
     let datePickerIndexPath = IndexPath(row: 2, section: 2)
     let notesIndexPath = IndexPath(row: 0, section: 2)
     
+    var todo: ToDo?
+    
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +57,18 @@ class ToDoDetailTableViewController: UITableViewController {
     }
     @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
         updateDateLabel(date: sender.date)
+    }
+    
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "saveUnwind" else { return }
+        
+        let title = titleTextField.text!
+        let isComplete = isCompleteButton.isSelected
+        let dueDate = dueDatePicker.date
+        let notes = notesTextView.text
+        
+        todo = ToDo(title: title, isComplete: isComplete, duoDate: dueDate, notes: notes)
     }
 }
 
